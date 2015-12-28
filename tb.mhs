@@ -1,0 +1,116 @@
+
+# ##############################################################################
+# Created by Base System Builder Wizard for Xilinx EDK 14.7 Build EDK_P.20131013
+# Sun Dec 27 12:27:37 2015
+# Target Board:  Custom
+# Family:    kintex7
+# Device:    xc7k325t
+# Package:   ffg900
+# Speed Grade:  -2
+# ##############################################################################
+ PARAMETER VERSION = 2.1.0
+
+
+ PORT RESET = RESET, DIR = I, SIGIS = RST, RST_POLARITY = 1
+ PORT CLK_P = CLK, DIR = I, DIFFERENTIAL_POLARITY = P, SIGIS = CLK, CLK_FREQ = 100000000
+ PORT CLK_N = CLK, DIR = I, DIFFERENTIAL_POLARITY = N, SIGIS = CLK, CLK_FREQ = 100000000
+ PORT sync_ch_ctl_bl16_0_SSD_DQ_pin = sync_ch_ctl_bl16_0_SSD_DQ, DIR = IO, VEC = [7:0]
+ PORT sync_ch_ctl_bl16_0_SSD_CLE_pin = sync_ch_ctl_bl16_0_SSD_CLE, DIR = O
+ PORT sync_ch_ctl_bl16_0_SSD_ALE_pin = sync_ch_ctl_bl16_0_SSD_ALE, DIR = O
+ PORT sync_ch_ctl_bl16_0_SSD_CEN_pin = sync_ch_ctl_bl16_0_SSD_CEN, DIR = O, VEC = [7:0]
+ PORT sync_ch_ctl_bl16_0_SSD_CLK_pin = sync_ch_ctl_bl16_0_SSD_CLK, DIR = O
+ PORT sync_ch_ctl_bl16_0_SSD_WRN_pin = sync_ch_ctl_bl16_0_SSD_WRN, DIR = O
+ PORT sync_ch_ctl_bl16_0_SSD_WPN_pin = sync_ch_ctl_bl16_0_SSD_WPN, DIR = O
+ PORT sync_ch_ctl_bl16_0_SSD_RB_pin = sync_ch_ctl_bl16_0_SSD_RB, DIR = I, VEC = [7:0]
+ PORT sync_ch_ctl_bl16_0_SSD_DQS_pin = sync_ch_ctl_bl16_0_SSD_DQS, DIR = IO
+ PORT sync_ch_ctl_bl16_0_PROG_START_O_pin = sync_ch_ctl_bl16_0_PROG_START_O, DIR = O, VEC = [7:0]
+ PORT sync_ch_ctl_bl16_0_PROG_END_O_pin = sync_ch_ctl_bl16_0_PROG_END_O, DIR = O, VEC = [7:0]
+ PORT sync_ch_ctl_bl16_0_READ_START_O_pin = sync_ch_ctl_bl16_0_READ_START_O, DIR = O, VEC = [7:0]
+ PORT sync_ch_ctl_bl16_0_READ_END_O_pin = sync_ch_ctl_bl16_0_READ_END_O, DIR = O, VEC = [7:0]
+ PORT sync_ch_ctl_bl16_0_ERASE_START_O_pin = sync_ch_ctl_bl16_0_ERASE_START_O, DIR = O, VEC = [7:0]
+ PORT sync_ch_ctl_bl16_0_ERASE_END_O_pin = sync_ch_ctl_bl16_0_ERASE_END_O, DIR = O, VEC = [7:0]
+ PORT sync_ch_ctl_bl16_0_OP_FAIL_O_pin = sync_ch_ctl_bl16_0_OP_FAIL_O, DIR = O, VEC = [7:0]
+
+
+BEGIN proc_sys_reset
+ PARAMETER INSTANCE = proc_sys_reset_0
+ PARAMETER HW_VER = 3.00.a
+ PARAMETER C_EXT_RESET_HIGH = 1
+ PORT Dcm_locked = proc_sys_reset_0_Dcm_locked
+ PORT Slowest_sync_clk = clk_100_0000MHz
+ PORT Interconnect_aresetn = proc_sys_reset_0_Interconnect_aresetn
+ PORT Ext_Reset_In = RESET
+END
+
+BEGIN clock_generator
+ PARAMETER INSTANCE = clock_generator_0
+ PARAMETER HW_VER = 4.03.a
+ PARAMETER C_CLKIN_FREQ = 100000000
+ PARAMETER C_CLKOUT0_FREQ = 100000000
+ PARAMETER C_CLKOUT0_GROUP = NONE
+ PARAMETER C_CLKOUT1_FREQ = 200000000
+ PARAMETER C_CLKOUT1_GROUP = NONE
+ PORT LOCKED = proc_sys_reset_0_Dcm_locked
+ PORT CLKOUT0 = clk_100_0000MHz
+ PORT CLKOUT1 = clk_200_0000MHz
+ PORT RST = RESET
+ PORT CLKIN = CLK
+END
+
+BEGIN axi_interconnect
+ PARAMETER INSTANCE = axi4lite_0
+ PARAMETER HW_VER = 1.06.a
+ PARAMETER C_INTERCONNECT_CONNECTIVITY_MODE = 0
+ PORT interconnect_aclk = clk_100_0000MHz
+ PORT INTERCONNECT_ARESETN = proc_sys_reset_0_Interconnect_aresetn
+END
+
+BEGIN axi_interconnect
+ PARAMETER INSTANCE = axi4
+ PARAMETER HW_VER = 1.06.a
+ PARAMETER C_INTERCONNECT_CONNECTIVITY_MODE = 1
+ PORT interconnect_aclk = clk_100_0000MHz
+ PORT INTERCONNECT_ARESETN = proc_sys_reset_0_Interconnect_aresetn
+END
+
+BEGIN sync_ch_ctl_bl16
+ PARAMETER INSTANCE = sync_ch_ctl_bl16_0
+ PARAMETER HW_VER = 1.00.a
+ PARAMETER C_BASEADDR = 0x73600000
+ PARAMETER C_HIGHADDR = 0x7360ffff
+ BUS_INTERFACE S_AXI = axi4lite_0
+ BUS_INTERFACE M_AXI = axi4
+ PORT S_AXI_ACLK = clk_100_0000MHz
+ PORT M_AXI_ACLK = clk_100_0000MHz
+ PORT SSD_CLK_100M = clk_100_0000MHz
+ PORT SSD_CLK_200M = clk_200_0000MHz
+ PORT SSD_DQ = sync_ch_ctl_bl16_0_SSD_DQ
+ PORT SSD_CLE = sync_ch_ctl_bl16_0_SSD_CLE
+ PORT SSD_ALE = sync_ch_ctl_bl16_0_SSD_ALE
+ PORT SSD_CEN = sync_ch_ctl_bl16_0_SSD_CEN
+ PORT SSD_CLK = sync_ch_ctl_bl16_0_SSD_CLK
+ PORT SSD_WRN = sync_ch_ctl_bl16_0_SSD_WRN
+ PORT SSD_WPN = sync_ch_ctl_bl16_0_SSD_WPN
+ PORT SSD_RB = sync_ch_ctl_bl16_0_SSD_RB
+ PORT SSD_DQS = sync_ch_ctl_bl16_0_SSD_DQS
+ PORT PROG_START_O = sync_ch_ctl_bl16_0_PROG_START_O
+ PORT PROG_END_O = sync_ch_ctl_bl16_0_PROG_END_O
+ PORT READ_START_O = sync_ch_ctl_bl16_0_READ_START_O
+ PORT READ_END_O = sync_ch_ctl_bl16_0_READ_END_O
+ PORT ERASE_START_O = sync_ch_ctl_bl16_0_ERASE_START_O
+ PORT ERASE_END_O = sync_ch_ctl_bl16_0_ERASE_END_O
+ PORT OP_FAIL_O = sync_ch_ctl_bl16_0_OP_FAIL_O
+ PORT SSD_RSTN = proc_sys_reset_0_Interconnect_aresetn
+END
+
+BEGIN axi_systemc
+ PARAMETER INSTANCE = axi_systemc_0
+ PARAMETER HW_VER = 1.00.a
+ PARAMETER C_INTERCONNECT_S_AXI_MASTERS = sync_ch_ctl_bl16_0.M_AXI
+ PARAMETER C_BASEADDR = 0x7ba00000
+ PARAMETER C_HIGHADDR = 0x7ba0ffff
+ BUS_INTERFACE S_AXI = axi4
+ BUS_INTERFACE M_AXI = axi4lite_0
+ PORT axi_aclk = clk_100_0000MHz
+END
+

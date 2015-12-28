@@ -1,0 +1,22 @@
+lib axi_systemc_v1_00_a axi_systemc.v verilog
+
+lib axi_systemc_v1_00_a srl_fifo.vhd vhdl
+lib axi_systemc_v1_00_a axi_bram_ctrl_funcs.vhd vhdl
+lib axi_systemc_v1_00_a axi_lite_if.vhd vhdl
+lib axi_systemc_v1_00_a checkbit_handler_64.vhd vhdl
+lib axi_systemc_v1_00_a checkbit_handler.vhd vhdl
+lib axi_systemc_v1_00_a correct_one_bit_64.vhd vhdl
+lib axi_systemc_v1_00_a correct_one_bit.vhd vhdl
+lib axi_systemc_v1_00_a xor18.vhd vhdl
+lib axi_systemc_v1_00_a parity.vhd vhdl
+lib axi_systemc_v1_00_a ecc_gen.vhd vhdl
+lib axi_systemc_v1_00_a lite_ecc_reg.vhd vhdl
+lib axi_systemc_v1_00_a axi_lite.vhd vhdl
+lib axi_systemc_v1_00_a sng_port_arb.vhd vhdl
+lib axi_systemc_v1_00_a ua_narrow.vhd vhdl
+lib axi_systemc_v1_00_a wrap_brst.vhd vhdl
+lib axi_systemc_v1_00_a rd_chnl.vhd vhdl
+lib axi_systemc_v1_00_a wr_chnl.vhd vhdl
+lib axi_systemc_v1_00_a full_axi.vhd vhdl
+lib axi_systemc_v1_00_a axi_bram_ctrl.vhd vhdl
+

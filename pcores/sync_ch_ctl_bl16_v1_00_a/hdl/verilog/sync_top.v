@@ -221,11 +221,18 @@ module sync_top(
     //status
     always @ (posedge i_nc_clk)
     begin
+        if (!i_nc_rstn)
+        begin
+           o_status <= 0;
+        end
+        else
+        begin
          case({w_asyn_st_cp, w_sync_st_cp})
              2'b10   : o_status <= w_rst_status;
              2'b01   : o_status <= w_st_data   ;
              default : o_status <= o_status    ;
          endcase
+       end
     end
     
     always @ (*)
