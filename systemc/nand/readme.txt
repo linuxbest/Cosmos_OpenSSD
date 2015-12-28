@@ -1,3 +1,8 @@
+Confidential:
+-------------
+This file and all files delivered herewith are Micron Confidential Information.
+
+
 Disclaimer of Warranty:
 -----------------------
 This software code and all associated documentation, comments
@@ -71,14 +76,14 @@ model.  The following are examples of defining the width.
     NC-Verilog  ncverilog +v2k +define+x8 nand_die_model.v
     VCS         vcs +v2k +define+x8 nand_die_model.v
 
-Defining the Classification:
+Defining the Classification (Multidie Configurations):
 -------------------------
 The verilog compiler directive "`define" may be used to choose between 
-multiple part classifications supported by the nand model.  Allowable 
-classifications are listed in the nand_parameters.vh file and begin with the 
-letter "A".  The classification is used to set the NUM_DIE, NUM_CE, and NUM_RB parameters in 
-nand_die_model.  The 
-following are examples of defining the classification.
+multiple part classifications supported by the nand model.  The classification is 
+referenced in the Part Numbering Information section of the NAND Spec.
+The classification sets NUM_DIE, NUM_CE, and NUM_RB parameters for nand_die_model, 
+and is used to instantiate the correct ports on the nand_model.
+The following are examples of defining the classification.
 
     simulator   command line
     ---------   ------------

@@ -24,34 +24,18 @@
 *                Copyright 2007 Micron Technology, Inc. All rights reserved.
 *
 ****************************************************************************************/
-`ifdef CLASSB
-    `define T1B1C1D1;  // 1 Target, 1 R/B, Common Cmd (1 cmd bus), Common Data (1 data bus)
-`else `ifdef CLASSC
-    `define T2B1C1D1;  // 2 Target, 1 R/B, Common Cmd (1 cmd bus), Common Data (1 data bus)
-`else `ifdef CLASSD
-    `define T2B2C1D1;  // 2 Target, 2 R/B, Common Cmd (1 cmd bus), Common Data (1 data bus)
-`else `ifdef CLASSE
-    `define T2B2C2D2;  // 2 Target, 2 R/B, Separate Cmd (2 cmd buses), Separate Data (2 data buses)
+`ifdef CLASSE
+    `define T2B2C2D2;  // 2 Die, 2 Target, 2 R/B, Separate Cmd (2 cmd buses), Separate Data (2 data buses)
 `else `ifdef CLASSF
-    `define T2B2C1D1;  // 2 Target, 2 R/B, Common Cmd (1 cmd bus), Common Data (1 data bus)
-`else `ifdef CLASSG
-    `define T2B2C2D2;  // 2 Target, 2 R/B, Separate Cmd (2 cmd buses), Separate Data (2 data buses)
+    `define T2B2C1D1;  // 2 Die, 2 Target, 2 R/B, Common Cmd (1 cmd bus), Common Data (1 data bus)
+`else `ifdef CLASSJ
+    `define T2B2C1D1;  // 4 Die, 2 Target, 2 R/B, Common Cmd (1 cmd bus), Common Data (1 data bus)
 `else `ifdef CLASSK
-    `define T4B4C2D2;  // 4 Target, 4 R/B, Separate Cmd (2 cmd buses), Separate Data (2 data buses)
+    `define T2B2C2D2;  // 4 Die, 2 Target, 2 R/B, Separate Cmd (2 cmd buses), Separate Data (2 data buses)
 `else `ifdef CLASSM
-    `define T1B1C1D1;  // 1 Target, 1 R/B, Common Cmd (1 cmd bus), Common Data (1 data bus)
-`else `ifdef CLASSN
-    `define T2B2C1D1;  // 2 Target, 2 R/B, Common Cmd (1 cmd bus), Common Data (1 data bus)
-`else `ifdef CLASSQ
-    `define T2B2C1D1;  // 2 Target, 2 R/B, Common Cmd (1 cmd bus), Common Data (1 data bus)
-`else `ifdef CLASSR
-    `define T2B2C2D2;  // 2 Target, 2 R/B, Separate Cmd (2 cmd buses), Separate Data (2 data buses)
-`else `ifdef CLASST
-    `define T2B2C1D1;  // 2 Target, 2 R/B, Common Cmd (1 cmd bus), Common Data (1 data bus)
+    `define T4B4C2D2;  // 4 Die, 4 Target, 4 R/B, Separate Cmd (2 cmd buses), Separate Data (2 data buses)
 `else `ifdef CLASSU
-    `define T2B2C2D2;  // 2 Target, 2 R/B, Separate Cmd (2 cmd buses), Separate Data (2 data buses)
-`else `ifdef CLASSW
-    `define T4B4C2D2;  // 4 Target, 4 R/B, Separate Cmd (2 cmd buses), Separate Data (2 data buses)
-`else  // DEFAULT = CLASSA
-    `define T1B1C1D1;  // 1 Target, 1 R/B, Common Cmd (1 cmd bus), Common Data (1 data bus)
-`endif `endif `endif `endif `endif `endif `endif `endif `endif `endif `endif `endif `endif `endif 
+    `define T4B4C2D2;  // 8 Die, 4 Target, 4 R/B, Separate Cmd (2 cmd buses), Separate Data (2 data buses)
+`else  // DEFAULT = CLASSB
+    `define T1B1C1D1;  // 1 Die, 1 Target, 1 R/B, Common Cmd (1 cmd bus), Common Data (1 data bus)
+`endif `endif `endif `endif `endif `endif

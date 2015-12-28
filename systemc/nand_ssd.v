@@ -74,7 +74,7 @@ module nand_ssd (/*AUTOARG*/
    assign PID  = 3'h0;
 
    nand_die_model #(.mds(3'h0)) uut_0 (DQ,  CLE,  ALE,  CEN,  CLK,  WRN,  WPN, RB,  Pre, Lock, DQS, ml_rdy[0], Rb_tar_n[0], PID);
-
+   defparam uut_0.DEBUG = 5'b1_1111;
 endmodule
 //
 // nand_ssd.v ends here
