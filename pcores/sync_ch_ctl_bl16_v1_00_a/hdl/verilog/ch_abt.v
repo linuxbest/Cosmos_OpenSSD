@@ -53,10 +53,8 @@ input		i_nc_clk,
 input		i_nc_rstn,
 
 input		[`WAY-1:0]	i_ch_req,
-output	[`WAY-1:0]	o_ch_grt
+output	reg [`WAY-1:0]	o_ch_grt
 );
-
-reg	[7:0]	o_ch_grt;
 
 // shift i_ch_req to round robin the current priority
 

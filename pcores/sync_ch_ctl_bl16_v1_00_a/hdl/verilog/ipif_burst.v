@@ -61,7 +61,9 @@ module ipif #(
   parameter         C_MST_AWIDTH                  = `MST_ADDR_WD,
   parameter         C_MST_DWIDTH                  = `MST_DATA_WD,
   parameter         C_NUM_REG                     = `NUM_REG+2,//`NUM_REG+4,
-  parameter         C_NUM_INTR                    = 1
+  parameter         C_NUM_INTR                    = 1,
+  parameter         C_LENGTH_WIDTH                = 12,
+  parameter         C_MST_NATIVE_DATA_WIDTH       = 32
 )(
   // -- system bus protocol
   input   wire                                    Bus2IP_Clk,
