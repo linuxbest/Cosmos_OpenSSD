@@ -4,7 +4,7 @@ do tb_setup.do
 
 vlog -suppress 2902 -novopt -incr -work work ../../systemc/nand_ssd.v
 vlog -suppress 2902 -novopt -incr -work work ../../systemc/nand/nand_model.v +incdir+../../systemc/nand/
-vlog -suppress 2902 -novopt -incr -work work ../../systemc/nand/nand_die_model.v +incdir+../../systemc/nand/
+vlog -suppress 2902 -novopt -incr -work work +define+SHORT_RESET ../../systemc/nand/nand_die_model.v +incdir+../../systemc/nand/
 
 sccom -work axi_systemc_v1_00_a -ggdb -I ../../systemc/ ../../systemc/axi_mm_systemc.cpp
 

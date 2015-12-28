@@ -74,7 +74,7 @@ static int wait_idle(uint32_t base, int ch)
 			fmTrace("todo %d", res);
 			break;
 		}
-		tmo --;
+//		tmo --;
 	} while (tmo > 0);
 
 	return tmo == 0;

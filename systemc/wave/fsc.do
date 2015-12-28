@@ -102,4 +102,39 @@ add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16
 add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/o_erase_start}
 add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/o_erase_end}
 
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/w_rst_we_n}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/s_CLK_out}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/o_nand_we_n}
 
+eval add wave -noupdate -divider {"nand reset0"}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/i_nc_clk}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/i_nc_rstn}
+
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/i_en_n}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/o_ready}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/o_rst_begin}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/o_status}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/o_st_data_cp}
+
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/o_ch_req}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/i_ch_gnt}
+
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/i_nand_io}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/o_nand_io}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/o_nand_io_t}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/o_nand_cle}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/o_nand_ce_n}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/o_nand_we_n}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/o_nand_re_n}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/i_nand_rb}
+
+add wave -noupdate -literal -hex {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/r_current_state}
+add wave -noupdate -literal -asc {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/state_ascii}
+
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/w_nand_rdy}
+
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/r_tCS_cnt}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/r_tWP_cnt}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/r_tWH_cnt}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/r_tWB_cnt}
+add wave -noupdate -logic        {/tb_tb/dut/sync_ch_ctl_bl16_0/sync_ch_ctl_bl16_0/IPIF_I/ch_controller[0]/ch/way_controller[0]/way/nand_ctrl0/reset0/r_SRRI_cnt}

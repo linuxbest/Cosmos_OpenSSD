@@ -73,20 +73,22 @@ module reset #(
   output  reg                                     o_nand_re_n,   //read enable
   input   wire                                    i_nand_rb      //ready(1)/busy(0)
   );
-  
-  //parameter                                                     
-  parameter         IDLE            = 4'b0000;  //0  //4'b0001;  //1    //9'h0_0_1;
-  parameter         WAIT_GRT        = 4'b0001;  //1  //4'b0011;  //3    //9'h0_0_2;
-  parameter         SETUP_CE        = 4'b0011;  //3  //4'b0010;  //2    //9'h0_0_4;
-  parameter         CMD_INPUT_WP    = 4'b0010;  //2  //4'b0110;  //6    //9'h0_0_8;
-  parameter         CMD_INPUT_WH    = 4'b0110;  //6  //4'b0111;  //7    //9'h0_1_0;
-  parameter         RESET_WB        = 4'b0111;  //7  //4'b0101;  //5    //9'h0_2_0;
-  parameter         CHK_STA         = 4'b0101;  //5  //4'b0100;  //4    //9'h0_4_0;
-  parameter         WAIT_SRRI       = 4'b0100;  //4  //4'b1100;  //c    //9'h0_8_0;
-  parameter         CMPLT           = 4'b1100;  //c  //4'b1101;  //d    //9'h1_0_0;
+
+  //parameter                      
+   parameter [3:0] // synopsys enum state_info
+     IDLE            = 4'b0000,  //0  //4'b0001;  //1    //9'h0_0_1;
+     WAIT_GRT        = 4'b0001,  //1  //4'b0011;  //3    //9'h0_0_2;
+     SETUP_CE        = 4'b0011,  //3  //4'b0010;  //2    //9'h0_0_4;
+     CMD_INPUT_WP    = 4'b0010,  //2  //4'b0110;  //6    //9'h0_0_8;
+     CMD_INPUT_WH    = 4'b0110,  //6  //4'b0111;  //7    //9'h0_1_0;
+     RESET_WB        = 4'b0111,  //7  //4'b0101;  //5    //9'h0_2_0;
+     CHK_STA         = 4'b0101,  //5  //4'b0100;  //4    //9'h0_4_0;
+     WAIT_SRRI       = 4'b0100,  //4  //4'b1100;  //c    //9'h0_8_0;
+     CMPLT           = 4'b1100;  //c  //4'b1101;  //d    //9'h1_0_0;
   
   //state
-  reg               [3:0]                         r_current_state;
+  reg   // synopsys enum state_info
+        [3:0]                         r_current_state;
   reg               [3:0]                         r_next_state;
   reg               [`IO_WD-1:0]                  r_nand_io_o;
   
@@ -366,5 +368,23 @@ function integer clogb2;
       clogb2 = i + 1;
   end
 endfunction
-  
+
+   /*AUTOASCIIENUM("r_current_state", "state_ascii", "")*/
+   // Beginning of automatic ASCII enum decoding
+   reg [95:0]		state_ascii;		// Decode of r_current_state
+   always @(r_current_state) begin
+      case ({r_current_state})
+	IDLE:         state_ascii = "idle        ";
+	WAIT_GRT:     state_ascii = "wait_grt    ";
+	SETUP_CE:     state_ascii = "setup_ce    ";
+	CMD_INPUT_WP: state_ascii = "cmd_input_wp";
+	CMD_INPUT_WH: state_ascii = "cmd_input_wh";
+	RESET_WB:     state_ascii = "reset_wb    ";
+	CHK_STA:      state_ascii = "chk_sta     ";
+	WAIT_SRRI:    state_ascii = "wait_srri   ";
+	CMPLT:        state_ascii = "cmplt       ";
+	default:      state_ascii = "%Error      ";
+      endcase
+   end
+   // End of automatics
 endmodule
